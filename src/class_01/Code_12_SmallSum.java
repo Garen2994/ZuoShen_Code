@@ -1,5 +1,10 @@
 package class_01;
-
+/**
+ * @Title : 小和问题 (归并排序思想的转化)
+ * @Author : Garen Hou
+ * @Email : garen2994@hotmail.com
+ * @Date :  2020/3/21 13:32
+ */
 public class Code_12_SmallSum {
 
 	public static int smallSum(int[] arr) {

@@ -30,7 +30,13 @@ public class Code_03_HeapSort {
 			index = (index - 1) / 2;
 		}
 	}
-
+	/**
+	 * @description 建堆
+	 * @param arr
+	 * @param index
+	 * @param size
+	 * @return void
+	 */
 	public static void heapify(int[] arr, int index, int size) {
 		int left = index * 2 + 1;
 		while (left < size) {

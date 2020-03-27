@@ -2,7 +2,12 @@ package class_01;
 
 import java.util.Arrays;
 import java.util.Comparator;
-
+/**
+ * @Title : 一个自定义类型的比较器
+ * @Author : Garen Hou
+ * @Email : garen2994@hotmail.com
+ * @Date :  2020/3/27 21:54
+ */
 public class Code_09_Comparator {
 
 	public static class Student {

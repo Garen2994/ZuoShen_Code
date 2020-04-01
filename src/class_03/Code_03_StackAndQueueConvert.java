@@ -7,7 +7,7 @@ import java.util.Stack;
 public class Code_03_StackAndQueueConvert {
 
 	public static class TwoStacksQueue {
-		private Stack<Integer> stackPush;
+		private Stack<Integer> stackPush;	//用LinkedList更好
 		private Stack<Integer> stackPop;
 
 		public TwoStacksQueue() {

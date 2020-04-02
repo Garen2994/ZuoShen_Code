@@ -1,5 +1,10 @@
 package class_03;
-
+/**
+ * @Title : 矩阵旋转90度
+ * @Author : Garen Hou
+ * @Email : garen2994@hotmail.com
+ * @Date :  2020/4/3 0:32
+ */
 public class Code_05_RotateMatrix {
 
 	public static void rotate(int[][] matrix) {
@@ -13,7 +18,7 @@ public class Code_05_RotateMatrix {
 	}
 
 	public static void rotateEdge(int[][] m, int tR, int tC, int dR, int dC) {
-		int times = dC - tC; 
+		int times = dC - tC;
 		int tmp = 0;
 		for (int i = 0; i != times; i++) {
 			tmp = m[tR][tC + i];

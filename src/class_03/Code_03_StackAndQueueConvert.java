@@ -3,9 +3,14 @@ package class_03;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
-
+/**
+ * @Title : 栈实现队列和队列实现栈
+ * @Author : Garen Hou
+ * @Email : garen2994@hotmail.com
+ * @Date :  2020/4/2 11:39
+ */
 public class Code_03_StackAndQueueConvert {
-
+	
 	public static class TwoStacksQueue {
 		private Stack<Integer> stackPush;	//用LinkedList更好
 		private Stack<Integer> stackPop;
@@ -32,7 +37,7 @@ public class Code_03_StackAndQueueConvert {
 
 		public int peek() {
 			if (stackPop.empty() && stackPush.empty()) {
-				throw new RuntimeException("Queue is empty!");
+				throw new RuntimeException("Queue is empty!");	//return -1;
 			} else if (stackPop.empty()) {
 				while (!stackPush.empty()) {
 					stackPop.push(stackPush.pop());

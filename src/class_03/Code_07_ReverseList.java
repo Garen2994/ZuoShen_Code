@@ -1,5 +1,10 @@
 package class_03;
-
+/**
+ * @Title : 宏观调度思想的问题之三：反转链表
+ * @Author : Garen Hou
+ * @Email : garen2994@hotmail.com
+ * @Date :  2020/4/3 23:51
+ */
 public class Code_07_ReverseList {
 
 	public static class Node {

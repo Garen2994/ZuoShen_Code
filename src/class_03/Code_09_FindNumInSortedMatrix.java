@@ -1,5 +1,10 @@
 package class_03;
-
+/**
+ * @Title : 宏观调度思想的问题之五：在行列都排好序的矩阵中找数
+ * @Author : Garen Hou
+ * @Email : garen2994@hotmail.com
+ * @Date :  2020/4/6 14:15
+ */
 public class Code_09_FindNumInSortedMatrix {
 
 	public static boolean isContains(int[][] matrix, int K) {
@@ -18,6 +23,7 @@ public class Code_09_FindNumInSortedMatrix {
 	}
 
 	public static void main(String[] args) {
+		
 		int[][] matrix = new int[][] { { 0, 1, 2, 3, 4, 5, 6 },// 0
 				{ 10, 12, 13, 15, 16, 17, 18 },// 1
 				{ 23, 24, 25, 26, 27, 28, 29 },// 2

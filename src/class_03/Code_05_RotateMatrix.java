@@ -12,7 +12,7 @@ public class Code_05_RotateMatrix {
 		int tC = 0;
 		int dR = matrix.length - 1;
 		int dC = matrix[0].length - 1;
-		while (tR < dR) {	//分圈转（）从外到内
+		while (tR < dR) {	//分圈转 (从外到内)
 			rotateEdge(matrix, tR++, tC++, dR--, dC--);
 		}
 	}

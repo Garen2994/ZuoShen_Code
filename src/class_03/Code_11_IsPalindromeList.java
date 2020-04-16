@@ -55,7 +55,11 @@ public class Code_11_IsPalindromeList {
 		return true;
 	}
 
-	// need O(1) extra space
+	/**
+	 * @description 空间复杂度O(1)的方法:快慢指针***
+	 * @param head
+	 * @return boolean
+	 */
 	public static boolean isPalindrome3(Node head) {
 		if (head == null || head.next == null) {
 			return true;
@@ -63,13 +67,13 @@ public class Code_11_IsPalindromeList {
 		Node n1 = head;
 		Node n2 = head;
 		while (n2.next != null && n2.next.next != null) { // find mid node
-			n1 = n1.next; // n1 -> mid
-			n2 = n2.next.next; // n2 -> end
+			n1 = n1.next; // n1 -> mid 慢指针
+			n2 = n2.next.next; // n2 -> end	//快指针
 		}
 		n2 = n1.next; // n2 -> right part first node
 		n1.next = null; // mid.next -> null
 		Node n3 = null;
-		while (n2 != null) { // right part convert
+		while (n2 != null) { // 反转右半部分的链表
 			n3 = n2.next; // n3 -> save next node
 			n2.next = n1; // next of right node convert
 			n1 = n2; // n1 move

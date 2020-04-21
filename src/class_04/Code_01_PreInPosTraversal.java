@@ -104,24 +104,28 @@ public class Code_01_PreInPosTraversal {
         }
 		System.out.println();
 }
-    
+    /**
+     * @description 用辅助栈的方法
+     * @param head
+     * @return void
+     */
     public static void posOrderUnRecur1(Node head) {
         System.out.print("pos-order: ");
-        if (head != null) {
-            Stack<Node> s1 = new Stack<Node>();
-            Stack<Node> s2 = new Stack<Node>();
+        if(head != null){
+            LinkedList<Node> s1 = new LinkedList<>();
+            LinkedList<Node> s2 = new LinkedList<>();
             s1.push(head);
-            while (!s1.isEmpty()) {
+            while(!s1.isEmpty()){
                 head = s1.pop();
                 s2.push(head);
-                if (head.left != null) {
+                if(head.left != null){
                     s1.push(head.left);
                 }
-                if (head.right != null) {
+                if(head.right != null){
                     s1.push(head.right);
                 }
             }
-            while (!s2.isEmpty()) {
+            while(!s2.isEmpty()){
                 System.out.print(s2.pop().value + " ");
             }
         }

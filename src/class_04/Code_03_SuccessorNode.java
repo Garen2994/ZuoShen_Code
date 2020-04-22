@@ -1,5 +1,10 @@
 package class_04;
-
+/**
+ * @Title : 在二叉树中找到一个节点的后续节点
+ * @Author : garen_hou
+ * @Email : garen2994@hotmail.com
+ * @Date :  2020/4/23 1:00 上午
+ */
 public class Code_03_SuccessorNode {
 
 	public static class Node {
@@ -12,14 +17,19 @@ public class Code_03_SuccessorNode {
 			this.value = data;
 		}
 	}
-
+	/**
+	 * @description 获得后续节点
+	 * @param node
+	 * @return class_04.Code_03_SuccessorNode.Node
+	 */
 	public static Node getSuccessorNode(Node node) {
 		if (node == null) {
 			return node;
 		}
+		//有右子树的情况：后继节点为右子树上最左节点
 		if (node.right != null) {
 			return getLeftMost(node.right);
-		} else {
+		} else {	//没有右子树的情况：向上遍历，直到当前节点是其父节点的左孩子时结束
 			Node parent = node.parent;
 			while (parent != null && parent.left != node) {
 				node = parent;
@@ -28,7 +38,11 @@ public class Code_03_SuccessorNode {
 			return parent;
 		}
 	}
-
+	/**
+	 * @description 获取当前子树最左的节点
+	 * @param node
+	 * @return class_04.Code_03_SuccessorNode.Node
+	 */
 	public static Node getLeftMost(Node node) {
 		if (node == null) {
 			return node;

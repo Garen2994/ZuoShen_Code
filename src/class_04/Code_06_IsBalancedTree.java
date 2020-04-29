@@ -1,5 +1,10 @@
 package class_04;
-
+/**
+ * @Title : 判断一棵树是否是平衡树
+ * @Author : garen_hou
+ * @Email : garen2994@hotmail.com
+ * @Date :  2020/4/30 12:37 上午
+ */
 public class Code_06_IsBalancedTree {
 
 	public static class Node {
@@ -18,7 +23,13 @@ public class Code_06_IsBalancedTree {
 		getHeight(head, 1, res);
 		return res[0];
 	}
-
+	/**
+	 * @description 递归获取树的高度
+	 * @param head
+	 * @param level
+	 * @param res
+	 * @return int
+	 */
 	public static int getHeight(Node head, int level, boolean[] res) {
 		if (head == null) {
 			return level;

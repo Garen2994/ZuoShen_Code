@@ -2,7 +2,12 @@ package class_04;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
+/**
+ * @Title : 二叉树序列化和反序列化
+ * @Author : garen_hou
+ * @Email : garen2994@hotmail.com
+ * @Date :  2020/4/23 11:35 下午
+ */
 public class Code_04_SerializeAndReconstructTree {
 
 	public static class Node {

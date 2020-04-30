@@ -11,7 +11,6 @@ public class Code_06_IsBalancedTree {
 		public int value;
 		public Node left;
 		public Node right;
-
 		public Node(int data) {
 			this.value = data;
 		}
@@ -47,7 +46,6 @@ public class Code_06_IsBalancedTree {
 		}
 		return Math.max(lH, rH);
 	}
-
 	public static void main(String[] args) {
 		Node head = new Node(1);
 		head.left = new Node(2);

@@ -19,7 +19,11 @@ public class Code_04_SerializeAndReconstructTree {
 			this.value = data;
 		}
 	}
-
+	/**
+	 * @description 先序遍历-序列化（递归）
+	 * @param head
+	 * @return java.lang.String
+	 */
 	public static String serialByPre(Node head) {
 		if (head == null) {
 			return "#!";
@@ -29,8 +33,13 @@ public class Code_04_SerializeAndReconstructTree {
 		res += serialByPre(head.right);
 		return res;
 	}
-
+	/**
+	 * @description 根据先序遍历反序列化为树（反向递归）
+	 * @param preStr
+	 * @return class_04.Code_04_SerializeAndReconstructTree.Node
+	 */
 	public static Node reconByPreString(String preStr) {
+		//先得到一个字符串数组 以"!"分割
 		String[] values = preStr.split("!");
 		Queue<String> queue = new LinkedList<String>();
 		for (int i = 0; i != values.length; i++) {
@@ -49,7 +58,11 @@ public class Code_04_SerializeAndReconstructTree {
 		head.right = reconPreOrder(queue);
 		return head;
 	}
-
+	/**
+	 * @description 根据层序遍历序列化二叉树
+	 * @param head
+	 * @return java.lang.String
+	 */
 	public static String serialByLevel(Node head) {
 		if (head == null) {
 			return "#!";

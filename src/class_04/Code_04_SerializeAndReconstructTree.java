@@ -50,7 +50,7 @@ public class Code_04_SerializeAndReconstructTree {
 
 	public static Node reconPreOrder(Queue<String> queue) {
 		String value = queue.poll();
-		if (value.equals("#")) {
+		if ("#".equals(value)) {
 			return null;
 		}
 		Node head = new Node(Integer.valueOf(value));

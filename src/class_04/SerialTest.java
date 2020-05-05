@@ -13,5 +13,8 @@ public class SerialTest {
         root.right.right = new TreeToString.TreeNode(5);
         String s = tree.toString(root);
         System.out.println(s);
+        TreeToString.TreeNode treeNode = tree.deSerialize(s);
+        System.out.println(treeNode.left);
+        System.out.println(treeNode.right);
     }
 }

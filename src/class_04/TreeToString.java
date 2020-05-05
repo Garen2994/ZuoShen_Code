@@ -1,6 +1,10 @@
 package class_04;
 
+import com.sun.source.tree.Tree;
+
 import javax.swing.tree.TreeNode;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * @Title : 搞懂序列化与反序列化
@@ -31,5 +35,25 @@ public class TreeToString {
         sb.append(root.value+",");
         this.preOrder(root.left, sb);
         this.preOrder(root.right, sb);
+    }
+    public TreeNode deSerialize(String data){
+        String[] values = data.split(",");
+        Queue<String> queue = new LinkedList<>();
+        for (int i = 0; i != values.length ; i++) {
+            queue.offer(values[i]);
+        }
+        return deSerializePreOder(queue);
+    }
+    
+    private TreeNode deSerializePreOder(Queue<String> queue) {
+        String value = queue.poll();
+        if("null".equals(value)){
+            return null;
+        }
+        TreeNode root = new TreeNode(Integer.parseInt(value));
+        root.left = deSerializePreOder(queue);
+        root.right = deSerializePreOder(queue);
+        return root;
+        
     }
 }

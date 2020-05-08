@@ -64,28 +64,29 @@ public class Code_04_SerializeAndReconstructTree {
 	 * @return java.lang.String
 	 */
 	public static String serialByLevel(Node head) {
-		if (head == null) {
+		if(head == null){
 			return "#!";
 		}
-		String res = head.value + "!";
-		Queue<Node> queue = new LinkedList<Node>();
+		StringBuilder sb = new StringBuilder();
+		sb.append(head.value).append("!");
+		Queue<Node> queue = new LinkedList<>();
 		queue.offer(head);
-		while (!queue.isEmpty()) {
+		while(!queue.isEmpty()){
 			head = queue.poll();
-			if (head.left != null) {
-				res += head.left.value + "!";
+			if(head.left!=null){
+				sb.append(head.left.value).append("!");
 				queue.offer(head.left);
-			} else {
-				res += "#!";
+			}else{
+				sb.append("#!");
 			}
-			if (head.right != null) {
-				res += head.right.value + "!";
+			if(head.right != null){
+				sb.append(head.right.value).append("!");
 				queue.offer(head.right);
-			} else {
-				res += "#!";
+			}else{
+				sb.append("#!");
 			}
 		}
-		return res;
+		return sb.toString();
 	}
 
 	public static Node reconByLevelString(String levelStr) {

@@ -6,7 +6,7 @@ package class_04;
  * @Date :  2020/5/12 3:44 下午
  */
 public class isBalanceTree {
-    static boolean isBalance = true;
+//    static boolean isBalance = true;    //尽量不用全局变量
     public static class Node {
         public int value;
         public Node left;
@@ -56,6 +56,7 @@ public class isBalanceTree {
         res[0] = true;
         getHeightPro(head,0,res);
         return res[0];
+//        return isBalance; //在getHeightPro中赋值
     }
     
     public static int getHeightPro(Node head,int level, boolean[] res){

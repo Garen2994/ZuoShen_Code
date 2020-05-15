@@ -2,7 +2,12 @@ package class_04;
 
 import java.util.LinkedList;
 import java.util.Queue;
-
+/**
+ * @Title : 验证二叉搜索树以及完全二叉树
+ * @Author : garen_hou
+ * @Email : garen2994@hotmail.com
+ * @Date :  2020/5/14 2:03 上午
+ */
 public class Code_07_IsBSTAndCBT {
 
 	public static class Node {
@@ -14,11 +19,16 @@ public class Code_07_IsBSTAndCBT {
 			this.value = data;
 		}
 	}
-
+	/**
+	 * @description 是否是二叉搜索树
+	 * @param head
+	 * @return boolean
+	 */
 	public static boolean isBST(Node head) {
 		if (head == null) {
 			return true;
 		}
+		//Morris遍历方法
 		boolean res = true;
 		Node pre = null;
 		Node cur1 = head;

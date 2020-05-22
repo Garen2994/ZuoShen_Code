@@ -74,9 +74,55 @@ public class MorrisTraversal {
             }
             cur = cur.right;
         }
-        System.out.println(" ");
+        System.out.println();
     }
     
+    public static void morrisPost(Node head) {
+        if (head == null) {
+            return;
+        }
+        Node cur = head;
+        Node pre = null;
+        while (cur != null) {
+            pre = cur.left;
+            if (pre != null) {
+                while (pre.right != null && pre.right != cur) {
+                    pre = pre.right;
+                }
+                if(pre.right == null){
+                    pre.right = cur;
+                    cur = cur.left;
+                    continue;
+                }else{
+                    pre.right = null;
+                    printPath(cur.left);
+                }
+            }
+            cur = cur.right;
+        }
+        printPath(head);
+        System.out.println();
+    }
+    private static void printPath(Node head){
+        Node end = reversePath(head);
+        Node cur = end;
+        while(cur != null){
+            System.out.print(cur.val + " ");
+            cur = cur.right;
+        }
+        reversePath(end);
+    }
+    private static Node reversePath(Node head){
+        Node pre = null;
+        Node next = null;
+        while(head != null){
+            next = head.right;
+            head.right = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;
+    }
     public static void main(String[] args) {
         Node head = new Node(4);
         head.left = new Node(2);
@@ -87,5 +133,6 @@ public class MorrisTraversal {
         
         morrisIn(head);
         morrisPre(head);
+        morrisPost(head);
     }
 }

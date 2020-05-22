@@ -69,8 +69,9 @@ public class MorrisTraversal {
                 } else {
                     pre.right = null;
                 }
+            } else {
+                System.out.print(cur.val + " ");
             }
-            System.out.print(cur.val + " ");
             cur = cur.right;
         }
         System.out.println(" ");

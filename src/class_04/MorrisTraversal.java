@@ -43,8 +43,7 @@ public class MorrisTraversal {
                     pre.right = null;
                 }
             }
-            
-            System.out.print(cur.val + " ");
+            System.out.print(cur.val + " "); //中序的两个输出情况都在cur = cur.right之前
             cur = cur.right;
         }
         System.out.println();
@@ -70,9 +69,9 @@ public class MorrisTraversal {
                 } else {
                     pre.right = null;
                 }
-            }else {
-                System.out.print(cur.val + " ");
-            }cur = cur.right;
+            }
+            System.out.print(cur.val + " ");
+            cur = cur.right;
         }
         System.out.println(" ");
     }

@@ -115,7 +115,7 @@ public class MorrisTraversal {
     private static Node reversePath(Node head){
         Node pre = null;
         Node next = null;
-        while(head != null){
+        while(head != null){  //类似单链表反转
             next = head.right;
             head.right = pre;
             pre = head;

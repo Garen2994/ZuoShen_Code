@@ -60,25 +60,26 @@ public class Code_07_IsBSTAndCBT {
 		if (head == null) {
 			return true;
 		}
-		Queue<Node> queue = new LinkedList<Node>();
-		boolean leaf = false;
-		Node l = null;
-		Node r = null;
+		Queue<Node> queue = new LinkedList<>();//层序遍历
+		boolean leaf = false; //开启验证是否叶节点阶段
+		Node lNode = null;
+		Node rNode = null;
 		queue.offer(head);
 		while (!queue.isEmpty()) {
 			head = queue.poll();
-			l = head.left;
-			r = head.right;
-			if ((leaf && (l != null || r != null)) || (l == null && r != null)) {
+			lNode = head.left;
+			rNode = head.right;
+			if((leaf && (lNode != null || rNode != null ))
+				|| (lNode == null && rNode != null)){
 				return false;
 			}
-			if (l != null) {
-				queue.offer(l);
+			if(lNode != null){
+				queue.offer(lNode);
 			}
-			if (r != null) {
-				queue.offer(r);
-			} else {
-				leaf = true;
+			if(rNode != null){
+				queue.offer(rNode);
+			}else{	//这种情况只能是(lNode != null && rNode == null)
+				leaf = true; //开启叶节点验证
 			}
 		}
 		return true;
@@ -120,7 +121,7 @@ public class Code_07_IsBSTAndCBT {
 		head.right = new Node(6);
 		head.left.left = new Node(1);
 		head.left.right = new Node(3);
-		head.right.left = new Node(5);
+		head.right.right = new Node(5);
 
 		printTree(head);
 		System.out.println(isBST(head));

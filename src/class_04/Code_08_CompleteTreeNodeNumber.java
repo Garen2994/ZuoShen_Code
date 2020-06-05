@@ -23,14 +23,14 @@ public class Code_08_CompleteTreeNodeNumber {
 		if (l == h) {
 			return 1;
 		}
-		if (mostLeftLevel(node.right, l + 1) == h) {
+		if (mostLeftLevel(node.right, l + 1) == h) {	//右子树左边界达到最大层数
 			return (1 << (h - l)) + bs(node.right, l + 1, h);
 		} else {
 			return (1 << (h - l - 1)) + bs(node.left, l + 1, h);
 		}
 	}
 
-	public static int mostLeftLevel(Node node, int level) {
+	public static int mostLeftLevel(Node node, int level) {	//只看左边界
 		while (node != null) {
 			level++;
 			node = node.left;

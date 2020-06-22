@@ -1,6 +1,8 @@
 package class_01;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
+
 /**
  * @Title : 归并排序
  * @Author : Garen Hou
@@ -20,6 +22,7 @@ public class Code_05_MergeSort {
 		if (l == r) {
 			return;
 		}
+		int[] ere = IntStream.range(0, r - l).toArray();
 		int mid = l + ((r - l) >> 1);
 		mergeSort(arr, l, mid);
 		mergeSort(arr, mid + 1, r);

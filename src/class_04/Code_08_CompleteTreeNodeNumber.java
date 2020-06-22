@@ -1,5 +1,10 @@
 package class_04;
-
+/**
+ * @Title : 求完全二叉树的节点个数
+ * @Author : Garen Hou
+ * @Email : garen2994@hotmail.com
+ * @Date : 2020/6/22 11:18
+ */
 public class Code_08_CompleteTreeNodeNumber {
 
 	public static class Node {

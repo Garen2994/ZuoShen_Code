@@ -2,12 +2,7 @@ package class_04;
 
 import java.util.LinkedList;
 import java.util.Queue;
-/**
- * @Title : 验证二叉搜索树以及完全二叉树
- * @Author : garen_hou
- * @Email : garen2994@hotmail.com
- * @Date :  2020/5/14 2:03 上午
- */
+
 public class Code_07_IsBSTAndCBT {
 
 	public static class Node {
@@ -19,16 +14,11 @@ public class Code_07_IsBSTAndCBT {
 			this.value = data;
 		}
 	}
-	/**
-	 * @description 是否是二叉搜索树
-	 * @param head
-	 * @return boolean
-	 */
+
 	public static boolean isBST(Node head) {
 		if (head == null) {
 			return true;
 		}
-		//Morris遍历方法
 		boolean res = true;
 		Node pre = null;
 		Node cur1 = head;
@@ -60,26 +50,25 @@ public class Code_07_IsBSTAndCBT {
 		if (head == null) {
 			return true;
 		}
-		Queue<Node> queue = new LinkedList<>();//层序遍历
-		boolean leaf = false; //开启验证是否叶节点阶段
-		Node lNode = null;
-		Node rNode = null;
+		Queue<Node> queue = new LinkedList<Node>();
+		boolean leaf = false;
+		Node l = null;
+		Node r = null;
 		queue.offer(head);
 		while (!queue.isEmpty()) {
 			head = queue.poll();
-			lNode = head.left;
-			rNode = head.right;
-			if((leaf && (lNode != null || rNode != null ))
-				|| (lNode == null && rNode != null)){
+			l = head.left;
+			r = head.right;
+			if ((leaf && (l != null || r != null)) || (l == null && r != null)) {
 				return false;
 			}
-			if(lNode != null){
-				queue.offer(lNode);
+			if (l != null) {
+				queue.offer(l);
 			}
-			if(rNode != null){
-				queue.offer(rNode);
-			}else{	//这种情况只能是(lNode != null && rNode == null)
-				leaf = true; //开启叶节点验证
+			if (r != null) {
+				queue.offer(r);
+			} else {
+				leaf = true;
 			}
 		}
 		return true;
@@ -121,7 +110,7 @@ public class Code_07_IsBSTAndCBT {
 		head.right = new Node(6);
 		head.left.left = new Node(1);
 		head.left.right = new Node(3);
-		head.right.right = new Node(5);
+		head.right.left = new Node(5);
 
 		printTree(head);
 		System.out.println(isBST(head));

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map.Entry;
 /**
- * @Title :  哈希表与哈希函数
+ * @Title :  哈希表与哈希函数的认识
  * @Author : Garen Hou
  * @Email : garen2994@hotmail.com
  * @Date : 2020/6/22 11:26

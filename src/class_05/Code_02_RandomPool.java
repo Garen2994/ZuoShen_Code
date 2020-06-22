@@ -1,7 +1,12 @@
 package class_05;
 
 import java.util.HashMap;
-
+/**
+ * @Title : 设置RandomPool结构 实现三个功能(两个HashMap)
+ * @Author : Garen Hou
+ * @Email : garen2994@hotmail.com
+ * @Date : 2020/6/22 16:31
+ */
 public class Code_02_RandomPool {
 
 	public static class Pool<K> {

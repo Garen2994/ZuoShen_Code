@@ -46,10 +46,10 @@ public class Code_04_UnionFind {
 			}
 			Node aHead = findHead(a);
 			Node bHead = findHead(b);
-			if (aHead != bHead) {
+			if (bHead != aHead) {
 				int aSetSize= sizeMap.get(aHead);
 				int bSetSize = sizeMap.get(bHead);
-				if (aSetSize <= bSetSize) {
+     				if (aSetSize <= bSetSize) {
 					fatherMap.put(aHead, bHead);
 					sizeMap.put(bHead, aSetSize + bSetSize);
 				} else {

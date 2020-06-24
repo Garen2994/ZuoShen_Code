@@ -2,7 +2,8 @@ package class_05;
 
 import java.util.HashMap;
 /**
- * @Title : 设置RandomPool结构 实现三个功能(两个HashMap)
+ * @Title : 设置RandomPool结构
+ * @Description : 实现三个功能(两个HashMap)--操作达到常量时间---不允许重复--等概率随机访问
  * @Author : Garen Hou
  * @Email : garen2994@hotmail.com
  * @Date : 2020/6/22 16:31
@@ -41,16 +42,16 @@ public class Code_02_RandomPool {
 
 		public K getRandom() {
 			if (this.size == 0) {
-				return null;
-			}
-			int randomIndex = (int) (Math.random() * this.size); // 0 ~ size -1
-			return this.indexKeyMap.get(randomIndex);
+                return null;
+            }
+            int randomIndex = (int) (Math.random() * this.size); // 0 ~ size -1
+            return this.indexKeyMap.get(randomIndex);
 		}
 
 	}
 
 	public static void main(String[] args) {
-		Pool<String> pool = new Pool<String>();
+	Pool<String> pool = new Pool<String>();
 		pool.insert("zuo");
 		pool.insert("cheng");
 		pool.insert("yun");
@@ -61,6 +62,6 @@ public class Code_02_RandomPool {
 		System.out.println(pool.getRandom());
 		System.out.println(pool.getRandom());
 
-	}
+}
 
 }

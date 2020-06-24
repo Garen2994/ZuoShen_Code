@@ -14,42 +14,42 @@ import java.util.Random;
 public class Code_02_RandomPool {
 
     public static class Pool<K> {
-        private HashMap<K, Integer> keyIndexMap;
-        private HashMap<Integer, K> indexKeyMap;
-        private int size;
+        public HashMap<K, Integer> keyIndexMap;
+        public HashMap<Integer, K> indexKeyMap;
+        public int size;
 
         public Pool() {
-            this.keyIndexMap = new HashMap<>();
-            this.indexKeyMap = new HashMap<>();
-            this.size = 0;
+            keyIndexMap = new HashMap<>();
+            indexKeyMap = new HashMap<>();
+            size = 0;
         }
 
         public void insert(K key) {
-            if (!this.keyIndexMap.containsKey(key)) {
-                this.keyIndexMap.put(key, this.size);
-                this.indexKeyMap.put(this.size++, key);
+            if (!keyIndexMap.containsKey(key)) {
+                keyIndexMap.put(key, size);
+                indexKeyMap.put(size++, key);
             }
         }
 
         public void delete(K key) {
-            if (this.keyIndexMap.containsKey(key)) {
-                int deleteIndex = this.keyIndexMap.get(key);
-                int lastIndex = --this.size;
-                K lastKey = this.indexKeyMap.get(lastIndex);
-                this.keyIndexMap.put(lastKey, deleteIndex);
-                this.indexKeyMap.put(deleteIndex, lastKey);
-                this.keyIndexMap.remove(key);
-                this.indexKeyMap.remove(lastIndex);
+            if (keyIndexMap.containsKey(key)) {
+                int deleteIndex = keyIndexMap.get(key);
+                int lastIndex = --size;
+                K lastKey = indexKeyMap.get(lastIndex);
+                keyIndexMap.put(lastKey, deleteIndex);
+                indexKeyMap.put(deleteIndex, lastKey);
+                keyIndexMap.remove(key);
+                indexKeyMap.remove(lastIndex);
             }
         }
 
         public K getRandom() {
-            if (this.size == 0) {
+            if (size == 0) {
                 return null;
             }
             Random r = new Random();
-            int idx = r.nextInt(this.size);
-            return this.indexKeyMap.get(idx);
+            int idx = r.nextInt(size);
+            return indexKeyMap.get(idx);
         }
     }
 

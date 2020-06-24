@@ -2,7 +2,14 @@ package class_05;
 
 import java.util.HashMap;
 import java.util.List;
-
+/**
+ * @Title : 设计并查集
+ * @Description : 检查两个元素是否属于同一集合
+ *                元素A，B所在集合合并为一个集合
+ * @Author : Garen Hou
+ * @Email : garen2994@hotmail.com
+ * @Date : 2020/6/24 20:53
+ */
 public class Code_04_UnionFind {
 
 	public static class Node {

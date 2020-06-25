@@ -1,14 +1,11 @@
 package class_05;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @Title : 设计并查集
  * @Description : 检查两个元素是否属于同一集合
- * 元素A，B所在集合合并为一个集合
+ *                元素A，B所在集合合并为一个集合
  * @Author : Garen Hou
  * @Email : garen2994@hotmail.com
  * @Date : 2020/6/24 20:53
@@ -43,7 +40,11 @@ public class Code_04_UnionFind {
             return Objects.hash(value);
         }
     }
-
+    /**
+     * @description UnionFind类
+     * @param null
+     * @return
+     */
     public static class UnionFindSet {
         public HashMap<Node, Node> fatherMap;
         public HashMap<Node, Integer> sizeMap;
@@ -71,14 +72,26 @@ public class Code_04_UnionFind {
          * @param node
          * @return class_05.Code_04_UnionFind.Node
          */
-        private Node findHead(Node node) {
-            Node father = fatherMap.get(node);
-            //recurse until father = node
-            if(father != node){
-                father = findHead(father);
+        private Node findHead(Node node) {//可以改成栈
+            Stack<Node> stack = new Stack<>();
+            Node cur = node;
+            Node parent  = fatherMap.get(node);
+            while(cur != parent){
+                stack.push(cur);
+                cur = parent;
+                parent = fatherMap.get(cur);
             }
-            fatherMap.put(node,father);
-            return father;
+            while(!stack.isEmpty()){
+                fatherMap.put(stack.pop(),parent);
+            }
+            return parent;
+//            Node father = fatherMap.get(node);
+//            //recurse until father = node
+//            if(father != node){
+//                father = findHead(father);
+//            }
+//            fatherMap.put(node,father);
+//            return father;
         }
 
         /**
@@ -104,7 +117,7 @@ public class Code_04_UnionFind {
             Node aHead = findHead(a);
             Node bHead = findHead(b);
             if(aHead != bHead){
-                int aSetSize = sizeMap.get(aHead);
+                int aSetSize = sizeMap.get(aHead);//只用到head元素对应的size值
                 int bSetSize = sizeMap.get(bHead);
                 if(aSetSize <= bSetSize){
                     fatherMap.put(aHead,bHead);
@@ -132,7 +145,7 @@ public class Code_04_UnionFind {
         System.out.println(set.findHead(list.get(4)).getValue());
         System.out.println("两个元素是否属于同一集合:" + (set.isSameSet(list.get(2), list.get(4))  ? " 是 " : " 否 "));
         System.out.println(set.sizeMap.get(list.get(4)));
-        System.out.println(set.sizeMap.get(list.get(2)));
+//        System.out.println(set.sizeMap.get(list.get(2)));
     }
 
 }

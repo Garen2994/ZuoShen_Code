@@ -1,5 +1,10 @@
 package class_05;
-
+/**
+ * @Title : ***岛屿问题
+ * @Author : Garen Hou
+ * @Email : garen2994@hotmail.com
+ * @Date : 2020/6/25 12:09
+ */
 public class Code_03_Islands {
 
 	public static int countIslands(int[][] m) {
@@ -49,7 +54,9 @@ public class Code_03_Islands {
 						{ 0, 0, 0, 0, 1, 1, 1, 0, 0 },
 						{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, };
 		System.out.println(countIslands(m2));
+		char[] s = {'1','2'};
+		System.out.println(s[0] == '1');
+		System.out.println(s.length);
 
 	}
-
 }

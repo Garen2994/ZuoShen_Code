@@ -12,6 +12,7 @@ public class Code_06_PrintMatrixSpiralOrder {
 		int tC = 0;
 		int dR = matrix.length - 1;
 		int dC = matrix[0].length - 1;
+
 		while (tR <= dR && tC <= dC) {
 			printEdge(matrix, tR++, tC++, dR--, dC--);
 		}

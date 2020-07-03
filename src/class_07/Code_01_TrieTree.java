@@ -58,7 +58,7 @@ public class Code_01_TrieTree {
 		public void delete(String word) {
 			if (search(word) != 0) {
 				char[] chs = word.toCharArray();
-				TrieNode node = root;
+				TrieNode node = root; 
 				int index = 0;
 				for (int i = 0; i < chs.length; i++) {
 					index = chs[i] - 'a';

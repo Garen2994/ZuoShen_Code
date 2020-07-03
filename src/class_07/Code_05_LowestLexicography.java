@@ -19,13 +19,12 @@ public class Code_05_LowestLexicography {
 
 	}
 
-
 	public static String lowestString(String[] strs){
 		if(strs == null || strs.length == 0){
 			return "";
 		}
 		Arrays.sort(strs, new MyComparator());
-//		System.out.println(Arrays.toString(strs));
+
 		String res = "";
 		for (int i = 0; i < strs.length; i++) {
 			res += strs[i];
@@ -39,7 +38,5 @@ public class Code_05_LowestLexicography {
 
 		String[] strs2 = { "ba", "b" };
 		System.out.println(lowestString(strs2));
-
 	}
-
 }

@@ -12,12 +12,13 @@ public class  Code_02_Less_Money {
 
 	public static int lessMoney(int[] arr) {
 		//维护一个小根堆
-		PriorityQueue<Integer> pq = new PriorityQueue<>(new Comparator<Integer>() {
-			@Override
-			public int compare(Integer o1, Integer o2) {
-				return o1 - o2;
-			}
-		});
+//		PriorityQueue<Integer> pq = new PriorityQueue<>(new Comparator<Integer>() {
+//			@Override
+//			public int compare(Integer o1, Integer o2) {
+//				return o1 - o2;
+//			}
+//		});
+		PriorityQueue<Integer> pq = new PriorityQueue<>((o1, o2) -> o1 - o2);
 		int cur = 0;
 		int sum = 0;
 		for (int i = 0; i < arr.length; i++) {

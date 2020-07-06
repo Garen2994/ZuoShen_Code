@@ -20,23 +20,7 @@ public class Code_03_IPO {
 		}
 	}
 
-//	public static class MinCostComparator implements Comparator<Node> {
-//
-//		@Override
-//		public int compare(Node o1, Node o2) {
-//			return o1.c - o2.c;
-//		}
-//
-//	}
-//
-//	public static class MaxProfitComparator implements Comparator<Node> {
-//
-//		@Override
-//		public int compare(Node o1, Node o2) {
-//			return o2.p - o1.p;
-//		}
-//
-//	}
+
 	/**
 	 * @description IPO收益最大的项目做法(不能并行)
 	 * @param k 最多能做的项目数

@@ -51,7 +51,6 @@ public class Code_08_CompleteTreeNodeNumber {
 		head.left.right = new Node(5);
 		head.right.left = new Node(6);
 		System.out.println(nodeNum(head));
-
 	}
-
 }
+

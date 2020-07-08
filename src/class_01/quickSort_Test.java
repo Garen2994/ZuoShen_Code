@@ -12,4 +12,11 @@ public class quickSort_Test {
         sort1.quickSort(arr);
         System.out.println(Arrays.toString(arr));
     }
+    @Test
+    public void Test_2(){
+        int[] arr = {3,-4,5,-5,1,8,10,6};
+        QuickSort qs = new QuickSort();
+        qs.quickSort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
 }

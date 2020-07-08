@@ -10,9 +10,10 @@ public class QuickSort_practice1 {
     public void quickSort(int[] arr,int l, int r){
         if(l < r) {
 //            int p = partition2Way(arr, l, r);
-            int p = partition(arr, l, r);
-            quickSort(arr, l, p - 1);
-            quickSort(arr, p + 1, r);
+//            int p = partition(arr, l, r);
+            int[] p = partition3Way(arr, l, r);
+            quickSort(arr, l, p[0]);
+            quickSort(arr, p[1], r);
         }
     }
     public int partition(int[] arr,int l,int r){
@@ -45,10 +46,25 @@ public class QuickSort_practice1 {
         arr[l] = key;
         return l ;
     }
-//    public int partition3Way(int[] arr, int l,int r){
-//        swap(arr,l,l+(int)(Math.random() * (r - l + 1)));
-//        int less =
-//    }
+    public int[] partition3Way(int[] arr, int l,int r){
+        swap(arr,l,l+(int)(Math.random() * (r - l + 1)));
+        int key = arr[l];
+        int lt = l; // arr[l+1...lt] < v
+        int gt = r + 1; //arr[gt...r] > v
+        int i = l + 1;//arr[lt+1...i] = v
+        while(i < gt){
+            if(arr[i] < key){
+                swap(arr, i++,++lt);
+            } else if(arr[i] > key){
+                swap(arr,i,--gt);
+            } else{
+                i++;
+            }
+        }
+        swap(arr, l, lt);
+        
+        return new int[]{lt, gt};
+    }
     public void swap(int[] arr, int i, int j){
         int tmp = arr[i];
         arr[i] = arr[j];

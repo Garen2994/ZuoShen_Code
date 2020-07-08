@@ -1,5 +1,4 @@
-package garen.demo.sort;
-
+package class_01;
 /**
  * @Title : ****快速排序****
  * @Author : Garen Hou
@@ -23,14 +22,14 @@ public class QuickSort {
      */
     public void quickSort(int[] arr, int l, int r) {
         if (l < r) {
-            swap(arr, l + (int) (Math.random() * (r - l + 1)), l);  //L到R随机选一个位置
-//            int[] p = partition(arr, l, r);
-//            quickSort(arr, l, p[0] - 1);
-//            quickSort(arr, p[1] + 1, r);
+            swap(arr, l + (int) (Math.random() * (r - l + 1)), r);  //L到R随机选一个位置
+            int[] p = partition(arr, l, r);
+            quickSort(arr, l, p[0] - 1);
+            quickSort(arr, p[1] + 1, r);
 //            swap(arr, l, l + (int) (Math.random() * (r - l + 1)));  //L到R随机选一个位置
-            int p = partition2ways(arr, l, r);
-            quickSort(arr, l, p - 1);
-            quickSort(arr, p + 1, r);
+//            int p = partition2ways(arr, l, r);
+//            quickSort(arr, l, p - 1);
+//            quickSort(arr, p + 1, r);
         }
     }
     
@@ -65,11 +64,11 @@ public class QuickSort {
     }
     
     /**
+     * @description 三路快排（三分Partition）(这里将pivot放在了arr[r]的位置，移动时少用一个变量)
      * @param arr
      * @param l
      * @param r
      * @return int[]
-     * @description 三路快排（三分Partition）
      */
     public int[] partition(int[] arr, int l, int r) {
         int less = l - 1;

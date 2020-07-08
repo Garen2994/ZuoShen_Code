@@ -2,47 +2,40 @@ package class_08;
 
 import java.util.Scanner;
 /**
- * @Title : 用矩阵乘法求解母牛问题
+ * @Title : O(logn)复杂度 -- 矩阵乘法
  * @Author : Garen Hou
  * @Email : garen2994@hotmail.com
  * @Date : 2020/7/7 14:23
  */
 public class Cow_log {
     public static void main(String[] args) {
-        System.out.println("请输入需要第几年的牛数量：");
+        System.out.println("请输入需要查询的斐波那契数列项：");
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        System.out.println("第" + n + "年有: " + getCount(n) +" 头牛");
+        System.out.println("第" + n + "项为: " + getCount(n));
     }
 
         public static int getCount(int n) {
         if (n < 1) {
             return 0;
-        } else if (n <= 3){
-            return n;
+        } else if (n <= 2){
+            return 1;
         } else {
-            int[][] base = {{1, 1, 0}, {0, 0, 1},{1, 0, 0}};    //推得基础矩阵
-            int[][] res = matrixPower(base, n - 3);
-            return 3 * res[0][0] + 2 * res[1][0]+ res[2][0];
+            int[][] base = {{1, 1}, {1, 0}};    //基础矩阵
+            int[][] res = matrixPower(base, n - 2); //斐波那契数列f(n)，f(n-1)是(1,1)与{{1，1}，{1，0}}的n-2次幂
+            return res[0][0] + res[1][0];    //第一列的两项之和为f(n)的值
         }
     }
-    /**
-     * @description (n-3)次方计算O(logN)
-     * @param m
-     * @param p
-     * @return int[][]
-     */
+
     public static int[][] matrixPower(int[][] m, int p) {
-        if (p == 0) {
+        if (p == 0) {    //异常情况，应该不存在
             return null;
-        } else if (p == 1) {
+        } else if (p == 1) {    //求矩阵m的一次方就是其本身
             return m;
-        } else {
-            //n为偶数 m^n -> m^(n/2) * m^(n/2)
-            //n为奇数 m^n -> m^(n/2) * m^(n/2) * m
-            int[][] res = matrixPower(m, p/2);
-            res = muliMatrix(res, res);
-            if ((p & 1) != 0) {
+        } else {    //到了这里意味着矩阵的幂不止2次，但是有可能是奇数也可能是偶数
+            int[][] res = matrixPower(m, p >> 1);    //p>>1代表着左移一位，数值作用就是除以2，矩阵少平方了一次
+            res = muliMatrix(res, res);        //前面除以2，这边就让自己与自己相乘以抵消之前的操作，也避免了重复的乘法
+            if ((p % 2) == 1) { //如果p是个奇数，左移的过程中就使得乘法少了一次
                 res = muliMatrix(res, m);
             }
             return res;
@@ -50,7 +43,7 @@ public class Cow_log {
     }
 
     public static int[][] muliMatrix(int[][] m1, int[][] m2) {
-        int[][] res = new int[m1.length][m2[0].length];
+        int[][] res = new int[m1.length][m2[0].length];    //为了通用性，这里结果矩阵的行列都依据传进来的矩阵取值
         for (int i = 0; i < m1.length; i++) {
             for (int j = 0; j < m2[0].length; j++) {
                 for (int k = 0; k < m2.length; k++) {

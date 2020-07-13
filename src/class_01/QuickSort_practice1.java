@@ -66,6 +66,9 @@ public class QuickSort_practice1 {
         return new int[]{lt, gt};
     }
     public void swap(int[] arr, int i, int j){
+        if(i == j){
+            return;
+        }
         int tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;

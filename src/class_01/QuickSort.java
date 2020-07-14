@@ -82,7 +82,7 @@ public class QuickSort {
                 l++;
             }
         }
-        swap(arr, more, r); //省一个变量
+        swap(arr, more, r);
         return new int[]{less + 1, more};
     }
     
